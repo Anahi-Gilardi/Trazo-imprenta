@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#141413" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>TRAZO Espacio Gráfico | Estudio Gráfico e Imprenta en Río Cuarto</title>
+  <meta name="description" content="Trazo Espacio Gráfico (@trazo.grafica) en Río Cuarto. Kits emprendedores, tarjetas personales, stickers troquelados, pines publicitarios, fotoimanes y folletería corporativa. Envíos a todo el país." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- SDK Oficial de Mercado Pago V2 listo para integrar -->
+  <script src="https://sdk.mercadopago.com/js/v2" defer></script>
+  <link rel="stylesheet" href="styles.css?v=11" />
+</head>
+<body>
+
+  <!-- Barra Superior Institucional -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-msg">
+        <strong>Río Cuarto, Córdoba</strong> &nbsp;·&nbsp; Envíos a todo el país &nbsp;<span class="hide-xs">·&nbsp; <strong>Hecho con dedicación, pensado para vos</strong></span>
+      </div>
+      <div class="topbar-links">
+        <a href="https://www.instagram.com/trazo.grafica/" target="_blank" rel="noopener">@trazo.grafica</a>
+        <a href="mailto:Trazoografica@gmail.com" class="hide-sm">Trazoografica@gmail.com</a>
+        <a href="https://wa.me/5493585104732" target="_blank" rel="noopener">+54 9 358 510-4732</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegación Principal -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <!-- Logo Trazo Espacio Gráfico (3 clics rápidos en el logo también abren el login oculto) -->
+      <a href="#inicio" class="brand-logo" id="brandLogoSecret" title="Trazo Espacio Gráfico">
+        <div class="brand-icon">
+          <span class="bar bar-left"></span>
+          <span class="bar bar-mid"></span>
+          <span class="bar bar-right"></span>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">TR<span>A</span>ZO</div>
+          <div class="brand-subtitle">Espacio Gráfico</div>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#productos" onclick="closeMobileMenu()">Productos</a></li>
+        <li><a href="#proceso" onclick="closeMobileMenu()">Cómo Trabajamos</a></li>
+        <li><a href="#nosotros" onclick="closeMobileMenu()">Sobre Nosotros</a></li>
+        <li><a href="#resenas" onclick="closeMobileMenu()">Reseñas</a></li>
+        <li><a href="#cotizador" onclick="closeMobileMenu()">Presupuestos / FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Botón visible únicamente cuando el dueño inició sesión -->
+        <button class="admin-pill" id="adminStatusBtn" onclick="openAdminPanel()">
+          Panel Dueño
+        </button>
+
+        <button class="cart-btn" onclick="toggleCart(true)">
+          <span>Carrito</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO PRINCIPAL -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-badge">
+        ESTUDIO GRÁFICO &amp; IMPRENTA · RÍO CUARTO A TODO EL PAÍS
+      </div>
+      <h1>
+        Potenciá la identidad de tu marca con <span class="highlight">impresión profesional</span>.
+      </h1>
+      <p>
+        Desde <strong>Kits Emprendedores</strong> listos para despegar hasta papelería corporativa, stickers troquelados, tarjetas de agradecimiento, pines publicitarios y fotoimanes. Diseñamos e imprimimos cada pieza con dedicación.
+      </p>
+      <div class="hero-buttons">
+        <a href="#productos" class="btn btn-primary">Ver Catálogo de Productos</a>
+        <a href="#cotizador" class="btn btn-secondary">Pedir Presupuesto a Medida</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <strong>+1.160</strong>
+          <span>Comunidad en @trazo.grafica</span>
+        </div>
+        <div class="trust-item">
+          <strong>Todo el País</strong>
+          <span>Envíos rápidos desde Río Cuarto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card tall">
+        <img src="assets/img/kit-corporativo.jpg?v=10" alt="Kit Corporativo Premium Trazo Espacio Gráfico" />
+        <div class="hero-card-tag">
+          <span>Kit Corporativo Premium</span>
+          <strong>$95.000</strong>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/img/planchas-stickers.jpg?v=10" alt="Planchas de Stickers Personalizados" />
+        <div class="hero-card-tag">
+          <span>Planchas de Stickers</span>
+          <strong>Full Color</strong>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/img/tarjetas-marca.jpg?v=10" alt="Tarjetas para tu marca" />
+        <div class="hero-card-tag">
+          <span>Tarjetas para tu Marca</span>
+          <strong>A Medida</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO PRODUCTOS (CATÁLOGO + MERCADO PAGO + ADMIN CRUD) -->
+  <section class="section section-alt" id="productos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Catálogo Online</span>
+          <h2 class="section-title">Nuestros Productos</h2>
+        </div>
+        <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+          <p class="section-desc">
+            Seleccioná los productos que necesitás, agregalos al carrito y finalizá tu pedido de forma simple y rápida.
+          </p>
+          <button class="btn btn-primary" id="ownerAddProductTopBtn" style="display:none;" onclick="openAdminPanel()">
+            Administrar Productos
+          </button>
+        </div>
+      </div>
+
+      <!-- Controles de Filtro y Búsqueda -->
+      <div class="catalog-controls">
+        <div class="category-pills" id="categoryPills">
+          <button class="cat-pill active" data-cat="todos" onclick="filterByCategory('todos', this)">Todos</button>
+          <button class="cat-pill" data-cat="Kits Emprendedores" onclick="filterByCategory('Kits Emprendedores', this)">Kits Emprendedores</button>
+          <button class="cat-pill" data-cat="Papelería & Tarjetas" onclick="filterByCategory('Papelería & Tarjetas', this)">Papelería &amp; Tarjetas</button>
+          <button class="cat-pill" data-cat="Stickers & Pines" onclick="filterByCategory('Stickers & Pines', this)">Stickers &amp; Pines</button>
+          <button class="cat-pill" data-cat="Fotoimanes & Eventos" onclick="filterByCategory('Fotoimanes & Eventos', this)">Fotoimanes &amp; Eventos</button>
+          <button class="cat-pill" data-cat="Corporativo & Sublimación" onclick="filterByCategory('Corporativo & Sublimación', this)">Corporativo &amp; Sublimación</button>
+        </div>
+
+        <div class="search-sort-group">
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar stickers, tarjetas, kits..."
+            oninput="renderProducts()"
+          />
+          <select id="sortSelect" class="sort-select" onchange="renderProducts()">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Menor precio</option>
+            <option value="price-desc">Mayor precio</option>
+            <option value="name-asc">Nombre A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grilla Dinámica de Productos -->
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- MÓDULO CÓMO TRABAJAMOS (PASO A PASO) -->
+  <section class="section" id="proceso">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Proceso de Trabajo</span>
+          <h2 class="section-title">¿Cómo gestionamos tu pedido?</h2>
+        </div>
+        <p class="section-desc">
+          Te acompañamos en todo el proceso para que tus impresiones queden exactamente como las imaginaste.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Elegís tus productos</h3>
+          <p>Armá tu pedido en la web eligiendo tu Kit Emprendedor, stickers, tarjetas, pines o fotoimanes y realizá tu compra.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Nos enviás tu logo o fotos</h3>
+          <p>Al confirmar tu compra, nos pasás tus archivos, textos o fotos por WhatsApp o correo. Si no tenés diseño, te asesoramos y lo armamos.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Muestra digital e impresión</h3>
+          <p>Te enviamos una previsualización para tu aprobación y pasamos a producción en papeles y materiales de calidad premium.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>Preparación y envío</h3>
+          <p>Preparamos tu pedido con dedicación en nuestro taller de Río Cuarto y lo despachamos a cualquier punto del país.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO SOBRE NOSOTROS -->
+  <section class="section section-alt" id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-mosaic">
+          <img src="assets/img/tarjetas-dedicacion.jpg?v=10" alt="Hecho con dedicación - Pensado para vos" />
+          <img src="assets/img/pines-empresas.jpg?v=10" alt="Pines personalizados para empresas" />
+          <img src="assets/img/packaging-box.jpg?v=10" alt="Packaging y presentación Trazo" />
+          <img src="assets/img/brochures-revistas.jpg?v=10" alt="Brochures corporativos Trazo" />
+        </div>
+
+        <div>
+          <span class="section-eyebrow">Sobre Nosotros</span>
+          <h2 class="section-title" style="margin-bottom: 1rem;">
+            Somos TRAZO Espacio Gráfico: diseño que se toca y perdura.
+          </h2>
+          <p style="color: var(--ink-muted); margin-bottom: 1rem;">
+            Nacimos en <strong>Río Cuarto, Córdoba</strong>, de la pasión por el diseño, la arquitectura (<a href="https://www.instagram.com/trazo.arqq/" target="_blank" style="color:var(--ink-black); font-weight:700;">@trazo.arqq</a>) y la comunicación visual. En <strong>Trazo Espacio Gráfico</strong> creemos que la primera impresión de un emprendimiento o empresa entra por los detalles: una tarjeta que da gusto guardar, un sticker que viste tu packaging o un brochure que transmite solidez.
+          </p>
+          <p style="color: var(--ink-muted);">
+            Nuestro lema está impreso en cada caja que sale de nuestro estudio: <strong>«Hecho con dedicación — Pensado para vos»</strong>. Trabajamos tanto con emprendedores que están dando sus primeros pasos como con empresas consolidadas e instituciones de todo el país.
+          </p>
+
+          <div class="about-values">
+            <div class="value-box">
+              <strong>Mirada de Estudio de Diseño</strong>
+              <span>Cuidamos la tipografía, el color, el corte y la proporción en cada pieza gráfica.</span>
+            </div>
+            <div class="value-box">
+              <strong>Materiales Seleccionados</strong>
+              <span>Papeles fotográficos, ilustración de alto gramaje, vinilos y herrajes durables.</span>
+            </div>
+            <div class="value-box">
+              <strong>Trato Cercano y Personalizado</strong>
+              <span>Hablás directo con nosotros por WhatsApp para revisar cada detalle antes de imprimir.</span>
+            </div>
+            <div class="value-box">
+              <strong>Envíos a Todo el País</strong>
+              <span>Atendemos en Río Cuarto y despachamos pedidos protegidos a toda la Argentina.</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="https://www.instagram.com/trazo.grafica/" target="_blank" rel="noopener" class="btn btn-primary">
+              Instagram @trazo.grafica
+            </a>
+            <a href="https://wa.me/5493585104732?text=Hola%20Trazo!%20Quiero%20hacerles%20una%20consulta" target="_blank" rel="noopener" class="btn btn-secondary">
+              Contactar al Estudio
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO RESEÑAS -->
+  <section class="section" id="resenas">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Clientes &amp; Marcas</span>
+          <h2 class="section-title">La experiencia de quienes trabajan con nosotros</h2>
+        </div>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <!-- MÓDULOS ADICIONALES: COTIZADOR CORPORATIVO A MEDIDA + PREGUNTAS FRECUENTES (SIN BORDES NEGROS GRUESOS) -->
+  <section class="section section-alt" id="cotizador">
+    <div class="container">
+      <div class="quote-faq-grid">
+        <!-- Cotizador a Medida -->
+        <div class="quote-card">
+          <span class="section-eyebrow">Presupuesto Personalizado</span>
+          <h3 class="section-title" style="font-size: 1.65rem; margin-bottom: 0.5rem;">
+            Cotizaciones a medida y pedidos corporativos
+          </h3>
+          <p style="color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 1.35rem;">
+            Para tiradas especiales, catálogos editoriales, papelería institucional o proyectos específicos, completá los datos y te responderemos a la brevedad:
+          </p>
+
+          <form id="customQuoteForm" onsubmit="sendCustomQuote(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qName">Nombre o Empresa *</label>
+                <input type="text" id="qName" class="form-control" placeholder="Ej: Estudio Aura / Juan Pérez" required />
+              </div>
+              <div class="form-group">
+                <label for="qCity">Ciudad / Provincia *</label>
+                <input type="text" id="qCity" class="form-control" placeholder="Ej: Río Cuarto / Córdoba" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qProduct">Línea de producto *</label>
+                <select id="qProduct" class="form-control" required>
+                  <option value="Kit Corporativo a Medida">Kit Corporativo a Medida</option>
+                  <option value="Planchas de Stickers / Etiquetas">Planchas de Stickers / Etiquetas</option>
+                  <option value="Tarjetas Personales / Tags">Tarjetas Personales / Tags</option>
+                  <option value="Pines Publicitarios por Mayor">Pines Publicitarios por Mayor</option>
+                  <option value="Fotoimanes / Souvenirs Evento">Fotoimanes / Souvenirs Evento</option>
+                  <option value="Brochures / Revistas / Folletos">Brochures / Revistas / Folletos</option>
+                  <option value="Stand Creativo / Tatuajes Temporales">Stand Creativo / Tatuajes Temporales</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="qQty">Cantidad estimada *</label>
+                <input type="text" id="qQty" class="form-control" placeholder="Ej: 500 unidades / 3 kits" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="qDetails">Especificaciones del trabajo (medidas, papel, acabados o fecha requerida)</label>
+              <textarea id="qDetails" class="form-control" rows="3" placeholder="Describí brevemente tu requerimiento..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Enviar Solicitud de Presupuesto
+            </button>
+          </form>
+        </div>
+
+        <!-- Preguntas Frecuentes (FAQ) -->
+        <div class="faq-card">
+          <span class="section-eyebrow">Consultas Frecuentes</span>
+          <h3 class="section-title" style="font-size: 1.65rem; margin-bottom: 1rem;">
+            Información técnica y comercial
+          </h3>
+
+          <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿En qué formato debo enviar mi logo o archivos?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Recomendamos enviar archivos vectoriales o editables (PDF, AI, CDR o SVG) o imágenes en PNG de alta resolución. Para fotoimanes podés compartir las imágenes por WhatsApp o enlace de Drive.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Realizan el diseño si no cuento con el archivo listo?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Sí, brindamos servicio de diseño y adaptación gráfica. Además, en el <strong>Kit Corporativo Premium</strong> el diseño y asesoramiento se incluye sin cargo.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Qué medios de pago aceptan a través de Mercado Pago?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Podés abonar con tarjetas de débito, crédito, saldo en cuenta de Mercado Pago o mediante transferencia bancaria directa.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Cómo realizan los envíos fuera de Río Cuarto?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Despachamos desde Río Cuarto hacia todo el país mediante correo y transportes expresos con seguimiento de envío.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>¿Cuál es el plazo habitual de producción?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Una vez aprobada la muestra digital final, el plazo estimado de producción es de 3 a 6 días hábiles según el volumen del trabajo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CON ACCESO OCULTO AL LOGIN DEL DUEÑO -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="brand-logo" style="color: #FFF; margin-bottom: 1rem;">
+          <div class="brand-icon">
+            <span class="bar bar-left"></span>
+            <span class="bar bar-mid"></span>
+            <span class="bar bar-right"></span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title" style="color: #FFF;">TR<span>A</span>ZO</div>
+            <div class="brand-subtitle" style="color: #B3ADA2;">Espacio Gráfico</div>
+          </div>
+        </div>
+        <p style="font-size: 0.88rem; color: #C2BCB0; margin-bottom: 1rem;">
+          Estudio gráfico e imprenta en Río Cuarto, Córdoba. Kits comerciales, stickers, tarjetas, pines, fotoimanes y folletería corporativa con envíos a todo el país.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#productos">Catálogo de Productos</a></li>
+          <li><a href="#proceso">Cómo Trabajamos</a></li>
+          <li><a href="#nosotros">Sobre Nosotros</a></li>
+          <li><a href="#resenas">Reseñas de Clientes</a></li>
+          <li><a href="#cotizador">Presupuestos / FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Líneas Destacadas</h4>
+        <ul>
+          <li><a href="#productos" onclick="filterByCategory('Kits Emprendedores')">Kit Esencial ($35.000)</a></li>
+          <li><a href="#productos" onclick="filterByCategory('Kits Emprendedores')">Kit Comercial ($65.000)</a></li>
+          <li><a href="#productos" onclick="filterByCategory('Kits Emprendedores')">Kit Corporativo ($95.000)</a></li>
+          <li><a href="#productos" onclick="filterByCategory('Stickers & Pines')">Stickers &amp; Pines 55mm</a></li>
+          <li><a href="#productos" onclick="filterByCategory('Papelería & Tarjetas')">Tarjetas Personales</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>Río Cuarto, Córdoba, Argentina</li>
+          <li><a href="https://wa.me/5493585104732" target="_blank">WhatsApp: +54 9 358 510-4732</a></li>
+          <li><a href="mailto:Trazoografica@gmail.com">Trazoografica@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/trazo.grafica/" target="_blank">Instagram: @trazo.grafica</a></li>
+          <li><a href="https://www.instagram.com/trazo.arqq/" target="_blank">Arquitectura: @trazo.arqq</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 TRAZO Espacio Gráfico · Todos los derechos reservados · Hecho con dedicación</span>
+      <!-- BOTÓN DISCRETO DE LOGIN OCULTO PARA EL DUEÑO -->
+      <button class="secret-login-trigger" onclick="handleSecretAccess()" title="Acceso Privado Gestión">
+        Administración
+      </button>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a
+    href="https://wa.me/5493585104732?text=Hola%20Trazo%20Espacio%20Gr%C3%A1fico!%20Vi%20su%20p%C3%A1gina%20web%20y%20quiero%20hacer%20una%20consulta"
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+  >
+    WhatsApp Directo
+  </a>
+
+  <!-- CARRITO DE COMPRAS LATERAL (DRAWER) -->
+  <div class="drawer-backdrop" id="cartBackdrop" onclick="toggleCart(false)"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.25rem;">Tu Pedido</h3>
+      <button class="modal-close" style="position:static;" onclick="toggleCart(false)">✕</button>
+    </div>
+
+    <div class="drawer-body" id="cartItemsContainer"></div>
+
+    <div class="drawer-footer">
+      <div class="form-group" style="margin-bottom:0.8rem;">
+        <label for="shippingMethod" style="font-size:0.78rem;">Modalidad de entrega</label>
+        <select id="shippingMethod" class="form-control" onchange="updateCartUI()">
+          <option value="retiro">Retiro en Estudio (Río Cuarto) — Sin cargo</option>
+          <option value="envio">Envío a domicilio / Correo (Todo el país) — A coordinar</option>
+        </select>
+      </div>
+
+      <div class="cart-summary-row">
+        <span>Total a pagar:</span>
+        <span id="cartTotalValue">$0</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        <button class="btn btn-mp" style="width:100%;" onclick="openMercadoPagoCheckout()">
+          Pagar con Mercado Pago
+        </button>
+        <button class="btn btn-secondary" style="width:100%; padding:0.7rem;" onclick="checkoutViaWhatsApp()">
+          Enviar pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL 1: CHECKOUT MERCADO PAGO -->
+  <div class="modal-overlay" id="mpModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('mpModal')">✕</button>
+      <span class="section-eyebrow" style="background:var(--mp-blue); color:#FFF;">Checkout Seguro</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.45rem; margin-bottom:0.5rem;">
+        Pagar con Mercado Pago
+      </h3>
+      <p style="font-size:0.88rem; color:var(--ink-muted); margin-bottom:1rem;">
+        Revisá el resumen de tu compra en <strong>Trazo Espacio Gráfico</strong> antes de continuar al pago.
+      </p>
+
+      <div id="mpOrderSummary" style="background:var(--bg-cream); padding:1rem; border-radius:12px; border:1px solid var(--border-light); margin-bottom:1rem; font-size:0.88rem;"></div>
+
+      <!-- Contenedor oficial para el Brick / Botón Wallet de Mercado Pago -->
+      <div id="wallet_container" style="margin-bottom:0.8rem;"></div>
+
+      <div style="background:#EEF8FF; border:1px solid #B6E0FE; border-radius:10px; padding:0.9rem; font-size:0.82rem; color:#0B4F6C; margin-bottom:1rem;">
+        <strong>Datos para transferencia / Mercado Pago:</strong><br/>
+        • <strong>Alias:</strong> <code id="mpAliasDisplay" style="font-weight:800;">trazo.grafica.mp</code><br/>
+        • Una vez realizado el pago, podés enviarnos el comprobante y tus archivos por WhatsApp.
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        <button class="btn btn-mp" id="mpDirectPayBtn" onclick="triggerMercadoPagoRedirect()">
+          Continuar a Mercado Pago
+        </button>
+        <button class="btn btn-primary" onclick="checkoutViaWhatsApp(true)">
+          Confirmar pedido y enviar archivos por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: LOGIN ESCONDIDO PARA EL DUEÑO -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-box" style="max-width:410px;">
+      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+      <span class="section-eyebrow">Acceso Privado</span>
+      <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.45rem; margin-bottom:0.4rem;">
+        Administración · TRAZO
+      </h3>
+      <p style="font-size:0.86rem; color:var(--ink-muted); margin-bottom:1.25rem;">
+        Ingresá tus credenciales para agregar, editar o eliminar productos, imágenes y precios.
+      </p>
+
+      <form onsubmit="submitOwnerLogin(event)">
+        <div class="form-group">
+          <label for="loginUser">Usuario</label>
+          <input type="text" id="loginUser" class="form-control" placeholder="admin" required />
+        </div>
+        <div class="form-group">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" class="form-control" placeholder="••••••••" required />
+        </div>
+        <p id="loginError" style="color:var(--danger-red); font-size:0.82rem; display:none; margin-bottom:0.75rem;">
+          Usuario o contraseña incorrectos.
+        </p>
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          Ingresar al Panel
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: PANEL ADMINISTRADOR CRUD COMPLETO -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-box modal-wide">
+      <button class="modal-close" onclick="closeModal('adminModal')">✕</button>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; padding-right:2.5rem;">
+        <div>
+          <span class="section-eyebrow">Panel de Gestión</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.5rem;">
+            Administración de Productos &amp; Mercado Pago
+          </h3>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-secondary" style="padding:0.45rem 0.9rem; font-size:0.8rem;" onclick="exportCatalogJSON()">
+            Exportar Catálogo
+          </button>
+          <button class="btn btn-secondary" style="padding:0.45rem 0.9rem; font-size:0.8rem;" onclick="resetDefaultCatalog()">
+            Restaurar Originales
+          </button>
+          <button class="btn btn-secondary" style="padding:0.45rem 0.9rem; font-size:0.8rem; border-color:var(--danger-red); color:var(--danger-red);" onclick="logoutOwner()">
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-grid">
+        <!-- Formulario Crear / Editar Producto -->
+        <div class="admin-form-box">
+          <h4 id="adminFormTitle" style="font-family:'Space Grotesk',sans-serif; font-size:1.12rem; margin-bottom:0.85rem;">
+            Nuevo Producto
+          </h4>
+          <form id="productCrudForm" onsubmit="saveProductFromAdmin(event)">
+            <input type="hidden" id="prodId" />
+
+            <div class="form-group">
+              <label for="prodName">Nombre del Producto *</label>
+              <input type="text" id="prodName" class="form-control" placeholder="Ej: Kit Esencial Emprendedor" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prodPrice">Precio ($ ARS) *</label>
+                <input type="number" id="prodPrice" class="form-control" placeholder="35000" min="0" step="100" required />
+              </div>
+              <div class="form-group">
+                <label for="prodCategory">Categoría *</label>
+                <select id="prodCategory" class="form-control" required>
+                  <option value="Kits Emprendedores">Kits Emprendedores</option>
+                  <option value="Papelería & Tarjetas">Papelería &amp; Tarjetas</option>
+                  <option value="Stickers & Pines">Stickers &amp; Pines</option>
+                  <option value="Fotoimanes & Eventos">Fotoimanes &amp; Eventos</option>
+                  <option value="Corporativo & Sublimación">Corporativo &amp; Sublimación</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prodBadge">Etiqueta (opcional)</label>
+                <input type="text" id="prodBadge" class="form-control" placeholder="Ej: Más Elegido / Nuevo" />
+              </div>
+              <div class="form-group">
+                <label for="prodMpLink">Link de Pago Mercado Pago (opcional)</label>
+                <input type="url" id="prodMpLink" class="form-control" placeholder="https://mpago.la/..." />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prodDesc">Descripción detallada *</label>
+              <textarea id="prodDesc" class="form-control" rows="3" placeholder="Describí qué incluye, medidas, cantidad y material..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Imagen del Producto (Subir archivo o indicar ruta/URL)</label>
+              <input type="file" id="prodImageFile" accept="image/*" class="form-control" style="margin-bottom:0.45rem;" onchange="handleImageUpload(event)" />
+              <input type="text" id="prodImageUrl" class="form-control" placeholder="O ruta/URL: assets/img/kit-esencial.jpg" oninput="previewImageUrl(this.value)" />
+              <div class="image-preview-box" id="imagePreviewBox">
+                <span style="font-size:0.8rem; color:var(--ink-muted);">Vista previa de la imagen</span>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.6rem; margin-top:1rem;">
+              <button type="submit" class="btn btn-primary" style="flex:1;" id="saveProdBtn">
+                Guardar Producto
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="resetAdminForm()">
+                Limpiar
+              </button>
+            </div>
+          </form>
+
+          <!-- Gestión de Categorías (Agregar, Editar, Eliminar) -->
+          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px dashed var(--border-light);">
+            <h5 style="font-size:0.88rem; margin-bottom:0.5rem;">Gestión de Categorías</h5>
+            <div style="display:flex; gap:0.45rem; margin-bottom:0.65rem;">
+              <input
+                type="text"
+                id="newCategoryInput"
+                class="form-control"
+                placeholder="Nueva categoría (ej: Regalos Empresariales)"
+                style="font-size:0.82rem; padding:0.5rem 0.75rem;"
+              />
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="padding:0.5rem 0.95rem; font-size:0.8rem; white-space:nowrap;"
+                onclick="addCategoryFromAdmin()"
+              >
+                Agregar
+              </button>
+            </div>
+            <div id="adminCategoriesList" style="display:flex; flex-direction:column; gap:0.35rem; max-height:155px; overflow-y:auto;"></div>
+          </div>
+
+          <!-- Configuración rápida de Mercado Pago -->
+          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px dashed var(--border-light);">
+            <h5 style="font-size:0.88rem; margin-bottom:0.5rem;">Configuración Mercado Pago</h5>
+            <div class="form-row">
+              <input type="text" id="mpPublicKeyInput" class="form-control" placeholder="MP Public Key (APP_USR-...)" style="font-size:0.8rem;" />
+              <input type="text" id="mpAliasInput" class="form-control" placeholder="Alias MP (ej: trazo.grafica.mp)" style="font-size:0.8rem;" />
+            </div>
+            <button type="button" class="btn btn-secondary" style="width:100%; margin-top:0.5rem; padding:0.45rem; font-size:0.8rem;" onclick="saveMpConfig()">
+              Guardar Datos de Mercado Pago
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla de Productos Existentes -->
+        <div>
+          <h4 style="font-family:'Space Grotesk',sans-serif; font-size:1.12rem; margin-bottom:0.85rem;">
+            Productos Publicados (<span id="adminProdCount">0</span>)
+          </h4>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="adminProductsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación Toast -->
+  <div class="toast" id="toastMsg">Producto agregado al carrito</div>
+
+  <script src="app.js?v=11"></script>
+</body>
+</html>
