@@ -1237,71 +1237,242 @@ body {
   cursor: pointer;
 }
 
-/* Admin Panel Layout */
-.admin-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 1.75rem;
-  margin-top: 1.25rem;
+/* Full-Screen Admin Panel Layout */
+.modal-overlay.modal-fullscreen {
+  padding: 0;
+  background: var(--bg-cream);
+  align-items: stretch;
+  justify-content: stretch;
 }
 
-.admin-form-box {
+.modal-box.modal-fullscreen-box {
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  box-shadow: none;
   background: var(--bg-cream);
-  padding: 1.35rem;
-  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg-white);
+  border-bottom: 1.5px solid var(--border-light);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-topbar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.admin-topbar-title h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.admin-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-sm-admin {
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+}
+
+.btn-danger-outline {
+  border-color: var(--danger-red) !important;
+  color: var(--danger-red) !important;
+}
+
+.btn-danger-outline:hover {
+  background: var(--danger-red) !important;
+  color: #FFFFFF !important;
+}
+
+.admin-dashboard-grid {
+  max-width: 1680px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.75rem 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: 410px 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.admin-panel-card {
+  background: var(--bg-white);
   border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.admin-card-header h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.admin-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-image-upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 115px;
+  gap: 0.75rem;
+  align-items: stretch;
 }
 
 .image-preview-box {
   width: 100%;
-  height: 150px;
+  height: 100%;
+  min-height: 96px;
   border: 2px dashed var(--border-light);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--bg-white);
-  margin-top: 0.45rem;
+  background: var(--bg-cream);
 }
 
 .image-preview-box img {
   width: 100%;
   height: 100%;
+  max-height: 110px;
   object-fit: contain;
 }
 
+.admin-categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
 .admin-table-wrap {
-  max-height: 520px;
-  overflow-y: auto;
+  overflow-x: auto;
   border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
+  border-radius: 12px;
 }
 
 .admin-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
+  font-size: 0.86rem;
 }
 
 .admin-table th,
 .admin-table td {
-  padding: 0.75rem;
+  padding: 0.85rem 0.9rem;
   text-align: left;
   border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background: var(--bg-cream);
 }
 
 .admin-table th {
   background: var(--bg-sand);
-  position: sticky;
-  top: 0;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-charcoal);
 }
 
 .admin-table img {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 8px;
   object-fit: cover;
+  border: 1px solid var(--border-light);
+}
+
+.admin-cat-badge {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-light);
+  color: var(--ink-charcoal);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 1340px) {
+  .admin-dashboard-grid {
+    grid-template-columns: 390px 1fr;
+  }
+  .admin-side-column {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .admin-topbar {
+    padding: 0.9rem 1.15rem;
+  }
+  .admin-dashboard-grid {
+    grid-template-columns: 1fr;
+    padding: 1.15rem;
+  }
+  .admin-side-column {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .admin-image-upload-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Floating WhatsApp Button */
@@ -1660,12 +1831,12 @@ html {
     padding: 1.5rem 1.2rem;
   }
 
-  .modal-overlay {
+  .modal-overlay:not(.modal-fullscreen) {
     padding: 0.75rem;
     align-items: flex-end;
   }
 
-  .modal-box {
+  .modal-box:not(.modal-fullscreen-box) {
     max-height: 90vh;
     max-height: 90dvh;
     padding: 1.5rem 1.2rem;

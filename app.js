@@ -833,12 +833,15 @@ function renderAdminTable() {
       <tr>
         <td><img src="${p.image}" alt="${escapeHtml(p.name)}" onerror="this.src='assets/img/combo-favoritos.jpg'" /></td>
         <td>
-          <strong>${escapeHtml(p.name)}</strong><br/>
-          <span style="font-size:0.75rem; color:var(--ink-muted);">${escapeHtml(p.category)}</span>
+          <strong style="display:block; font-size:0.9rem; color:var(--ink-black);">${escapeHtml(p.name)}</strong>
+          ${p.badge ? `<span style="display:inline-block; margin-top:0.2rem; font-size:0.7rem; background:var(--trazo-yellow-soft); padding:0.1rem 0.45rem; border-radius:4px; font-weight:600;">${escapeHtml(p.badge)}</span>` : ""}
         </td>
-        <td style="font-weight:700;">${formatARS(p.price)}</td>
         <td>
-          <div style="display:flex; gap:0.35rem;">
+          <span class="admin-cat-badge">${escapeHtml(p.category)}</span>
+        </td>
+        <td style="font-weight:800; font-size:0.94rem; white-space:nowrap;">${formatARS(p.price)}</td>
+        <td style="text-align:right;">
+          <div style="display:inline-flex; gap:0.4rem; justify-content:flex-end;">
             <button class="owner-icon-btn" onclick="startEditProduct(${p.id})">Editar</button>
             <button class="owner-icon-btn delete" onclick="deleteProduct(${p.id})">Eliminar</button>
           </div>
